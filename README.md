@@ -7,4 +7,4 @@ The rest.json file captures the [Polygon.io api spec](https://api.polygon.io/ope
 
 
 ## Versioning
-This library's versioning guidelines follow [Semantic Versioning 2.0.0](https://api.polygon.io/openapi).
+This library's versioning guidelines follow [Semantic Versioning 2.0.0](https://semver.org/).
