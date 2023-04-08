@@ -12189,7 +12189,7 @@
         "operationId": "SnapshotSummary",
         "parameters": [
           {
-            "description": "Comma separated list of tickers. This API currently supports Stocks/Equities, Crypto, Options, and Forex. See \u003ca rel=\"nofollow\" target=\"_blank\" href=\"https://polygon.io/docs/stocks/get_v3_reference_tickers\"\u003ethe tickers endpoint\u003c/a\u003e for more details on supported tickers. If no tickers are passed then no results will be returned.",
+            "description": "Comma separated list of tickers. This API currently supports Stocks/Equities, Crypto, Options, and Forex. See \u003ca rel=\"nofollow\" target=\"_blank\" href=\"https://polygon.io/docs/stocks/get_v3_reference_tickers\"\u003ethe tickers endpoint\u003c/a\u003e for more details on supported tickers. If no tickers are passed then no results will be returned.\n\nWarning: The maximum number of characters allowed in a URL are subject to your technology stack.",
             "example": "NCLH,O:SPY250321C00380000,C:EURUSD,X:BTCUSD",
             "in": "query",
             "name": "ticker.any_of",
@@ -12208,6 +12208,7 @@
                         "icon_url": "https://api.polygon.io/icon.png",
                         "logo_url": "https://api.polygon.io/logo.svg"
                       },
+                      "last_updated": 1679597116344223500,
                       "market_status": "closed",
                       "name": "Norwegian Cruise Lines",
                       "price": 22.3,
@@ -12229,6 +12230,7 @@
                       "type": "stock"
                     },
                     {
+                      "last_updated": 1679597116344223500,
                       "market_status": "closed",
                       "name": "NCLH $5 Call",
                       "options": {
@@ -12258,6 +12260,7 @@
                       "type": "options"
                     },
                     {
+                      "last_updated": 1679597116344223500,
                       "market_status": "open",
                       "name": "Euro - United States Dollar",
                       "price": 0.97989,
@@ -12278,6 +12281,7 @@
                         "icon_url": "https://api.polygon.io/icon.png",
                         "logo_url": "https://api.polygon.io/logo.svg"
                       },
+                      "last_updated": 1679597116344223500,
                       "market_status": "open",
                       "name": "Bitcoin - United States Dollar",
                       "price": 32154.68,
@@ -12324,6 +12328,15 @@
                           "error": {
                             "description": "The error while looking for this ticker.",
                             "type": "string"
+                          },
+                          "last_updated": {
+                            "description": "The nanosecond timestamp of when this information was updated.",
+                            "format": "int64",
+                            "type": "integer",
+                            "x-polygon-go-type": {
+                              "name": "INanoseconds",
+                              "path": "github.com/polygon-io/ptime"
+                            }
                           },
                           "market_status": {
                             "description": "The market status for the market that trades this ticker.",
@@ -12400,12 +12413,12 @@
                                 "type": "number"
                               },
                               "early_trading_change": {
-                                "description": "Today’s early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.",
+                                "description": "Todayâ€™s early trading change amount, difference between price and previous close if in early trading hours, otherwise difference between last price during early trading and previous close.",
                                 "format": "double",
                                 "type": "number"
                               },
                               "early_trading_change_percent": {
-                                "description": "Today’s early trading change as a percentage.",
+                                "description": "Todayâ€™s early trading change as a percentage.",
                                 "format": "double",
                                 "type": "number"
                               },
@@ -12415,12 +12428,12 @@
                                 "type": "number"
                               },
                               "late_trading_change": {
-                                "description": "Today’s late trading change amount, difference between price and today’s close if in late trading hours, otherwise difference between last price during late trading and today’s close.",
+                                "description": "Todayâ€™s late trading change amount, difference between price and todayâ€™s close if in late trading hours, otherwise difference between last price during late trading and todayâ€™s close.",
                                 "format": "double",
                                 "type": "number"
                               },
                               "late_trading_change_percent": {
-                                "description": "Today’s late trading change as a percentage.",
+                                "description": "Todayâ€™s late trading change as a percentage.",
                                 "format": "double",
                                 "type": "number"
                               },
@@ -12459,7 +12472,7 @@
                             "type": "string"
                           }
                         },
-                        "required": [ "ticker", "name", "price", "branding", "market_status", "type", "session", "options" ],
+                        "required": [ "ticker", "name", "price", "branding", "market_status", "type", "session", "options", "last_updated" ],
                         "type": "object",
                         "x-polygon-go-type": { "name": "SummaryResult" }
                       },
@@ -13182,7 +13195,7 @@
     },
     "/v2/aggs/ticker/{cryptoTicker}/range/{multiplier}/{timespan}/{from}/{to}": {
       "get": {
-        "description": "Get aggregate bars for a cryptocurrency pair over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = ‘minute’ and multiplier = ‘5’ then 5-minute bars will be returned.\n",
+        "description": "Get aggregate bars for a cryptocurrency pair over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = â€˜minuteâ€™ and multiplier = â€˜5â€™ then 5-minute bars will be returned.\n",
         "parameters": [
           {
             "description": "The ticker symbol of the currency pair.",
@@ -13562,7 +13575,7 @@
     },
     "/v2/aggs/ticker/{forexTicker}/range/{multiplier}/{timespan}/{from}/{to}": {
       "get": {
-        "description": "Get aggregate bars for a forex pair over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = ‘minute’ and multiplier = ‘5’ then 5-minute bars will be returned.\n",
+        "description": "Get aggregate bars for a forex pair over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = â€˜minuteâ€™ and multiplier = â€˜5â€™ then 5-minute bars will be returned.\n",
         "parameters": [
           {
             "description": "The ticker symbol of the currency pair.",
@@ -13895,7 +13908,7 @@
     },
     "/v2/aggs/ticker/{indicesTicker}/range/{multiplier}/{timespan}/{from}/{to}": {
       "get": {
-        "description": "Get aggregate bars for an index over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = ‘minute’ and multiplier = ‘5’ then 5-minute bars will be returned.\n",
+        "description": "Get aggregate bars for an index over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = â€˜minuteâ€™ and multiplier = â€˜5â€™ then 5-minute bars will be returned.\n",
         "parameters": [
           {
             "description": "The ticker symbol of Index.",
@@ -14235,7 +14248,7 @@
     },
     "/v2/aggs/ticker/{optionsTicker}/range/{multiplier}/{timespan}/{from}/{to}": {
       "get": {
-        "description": "Get aggregate bars for an option contract over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = ‘minute’ and multiplier = ‘5’ then 5-minute bars will be returned.\n",
+        "description": "Get aggregate bars for an option contract over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = â€˜minuteâ€™ and multiplier = â€˜5â€™ then 5-minute bars will be returned.\n",
         "parameters": [
           {
             "description": "The ticker symbol of the options contract.",
@@ -14611,7 +14624,7 @@
     },
     "/v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from}/{to}": {
       "get": {
-        "description": "Get aggregate bars for a stock over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = ‘minute’ and multiplier = ‘5’ then 5-minute bars will be returned.\n",
+        "description": "Get aggregate bars for a stock over a given date range in custom time window sizes.\n\u003cbr /\u003e\n\u003cbr /\u003e\nFor example, if timespan = â€˜minuteâ€™ and multiplier = â€˜5â€™ then 5-minute bars will be returned.\n",
         "parameters": [
           {
             "description": "The ticker symbol of the stock/equity.",
@@ -15639,7 +15652,7 @@
     },
     "/v2/snapshot/locale/global/markets/crypto/tickers": {
       "get": {
-        "description": "Get the current minute, day, and previous day’s aggregate, as well as the last trade and quote for all traded cryptocurrency symbols.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges. This can happen as early as 4am EST.\n",
+        "description": "Get the current minute, day, and previous dayâ€™s aggregate, as well as the last trade and quote for all traded cryptocurrency symbols.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges. This can happen as early as 4am EST.\n",
         "parameters": [
           {
             "description": "A comma separated list of tickers to get snapshots for.",
@@ -15934,7 +15947,7 @@
     },
     "/v2/snapshot/locale/global/markets/crypto/tickers/{ticker}": {
       "get": {
-        "description": "Get the current minute, day, and previous day’s aggregate, as well as the last trade and quote for a single traded cryptocurrency symbol.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges.\n",
+        "description": "Get the current minute, day, and previous dayâ€™s aggregate, as well as the last trade and quote for a single traded cryptocurrency symbol.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges.\n",
         "parameters": [
           {
             "description": "Ticker of the snapshot",
@@ -16685,7 +16698,7 @@
     },
     "/v2/snapshot/locale/global/markets/forex/tickers": {
       "get": {
-        "description": "Get the current minute, day, and previous day’s aggregate, as well as the last trade and quote for all traded forex symbols.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges. This can happen as early as 4am EST.\n",
+        "description": "Get the current minute, day, and previous dayâ€™s aggregate, as well as the last trade and quote for all traded forex symbols.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges. This can happen as early as 4am EST.\n",
         "parameters": [
           {
             "description": "A comma separated list of tickers to get snapshots for.",
@@ -16953,7 +16966,7 @@
     },
     "/v2/snapshot/locale/global/markets/forex/tickers/{ticker}": {
       "get": {
-        "description": "Get the current minute, day, and previous day’s aggregate, as well as the last trade and quote for a single traded currency symbol.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges.\n",
+        "description": "Get the current minute, day, and previous dayâ€™s aggregate, as well as the last trade and quote for a single traded currency symbol.\n\u003cbr /\u003e\n\u003cbr /\u003e\nNote: Snapshot data is cleared at 12am EST and gets populated as data is received from the exchanges.\n",
         "parameters": [
           {
             "description": "The forex ticker.",
@@ -22691,7 +22704,7 @@
         "operationId": "IndicesSnapshot",
         "parameters": [
           {
-            "description": "Comma separated list of tickers",
+            "description": "Comma separated list of tickers.\n\nWarning: The maximum number of characters allowed in a URL are subject to your technology stack.",
             "example": "I:SPX",
             "in": "query",
             "name": "ticker.any_of",
@@ -22706,6 +22719,7 @@
                   "request_id": "6a7e466379af0a71039d60cc78e72282",
                   "results": [
                     {
+                      "last_updated": 1679597116344223500,
                       "market_status": "closed",
                       "name": "S\u0026P 500",
                       "session": {
@@ -22718,6 +22732,7 @@
                         "previous_close": 3812.19
                       },
                       "ticker": "I:SPX",
+                      "timeframe": "REAL-TIME",
                       "type": "indices",
                       "value": 3822.39
                     },
@@ -22743,6 +22758,15 @@
                           "error": {
                             "description": "The error while looking for this ticker.",
                             "type": "string"
+                          },
+                          "last_updated": {
+                            "description": "The nanosecond timestamp of when this information was updated.",
+                            "format": "int64",
+                            "type": "integer",
+                            "x-polygon-go-type": {
+                              "name": "INanoseconds",
+                              "path": "github.com/polygon-io/ptime"
+                            }
                           },
                           "market_status": {
                             "description": "The market status for the market that trades this ticker.",
@@ -22801,6 +22825,11 @@
                             "description": "Ticker of asset queried.",
                             "type": "string"
                           },
+                          "timeframe": {
+                            "description": "The time relevance of the data.",
+                            "enum": [ "DELAYED", "REAL-TIME" ],
+                            "type": "string"
+                          },
                           "type": {
                             "description": "The indices market.",
                             "enum": [ "indices" ],
@@ -22811,7 +22840,7 @@
                             "type": "number"
                           }
                         },
-                        "required": [ "ticker" ],
+                        "required": [ "ticker", "timeframe", "last_updated" ],
                         "type": "object",
                         "x-polygon-go-type": { "name": "IndicesResult" }
                       },
@@ -23000,7 +23029,7 @@
                         "expiration_date": "2022-01-21",
                         "shares_per_contract": 100,
                         "strike_price": 150,
-                        "ticker": "AAPL211022C000150000"
+                        "ticker": "O:AAPL211022C000150000"
                       },
                       "greeks": {
                         "delta": 1,
