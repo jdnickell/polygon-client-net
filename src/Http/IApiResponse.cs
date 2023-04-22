@@ -1,6 +1,6 @@
 ﻿namespace polygon_client_net.Http
 {
-    public interface IAPIResponse<out T>
+    public interface IApiResponse<out T>
     {
         T? Body { get; }
 

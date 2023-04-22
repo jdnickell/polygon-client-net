@@ -6,14 +6,8 @@ namespace polygon_client_net.Models.Request;
 /// <summary>
 /// Get a single ticker supported by Polygon.io. This response will have detailed information about the ticker and the company behind it.
 /// </summary>
-public class TickerDetailsRequest
+public class TickerDetailsRequest : RequestParameters
 {
-    /// <summary>
-    /// The ticker symbol of the asset.
-    /// </summary>
-    [QueryParameter("ticker")]
-    public string? Ticker { get; set; }
-
     /// <summary>
     /// Specify a point in time to get information about the ticker available on that date. 
     /// When retrieving information from SEC filings, we compare this date with the period of report date on the SEC filing.
