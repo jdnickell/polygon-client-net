@@ -1,6 +1,6 @@
 ﻿namespace polygon_client_net.Http
 {
-    public interface zIHTTPClient : IDisposable
+    public interface IHttpClient : IDisposable
     {
         Task<IResponse> DoRequest(IRequest request, CancellationToken cancel = default);
 

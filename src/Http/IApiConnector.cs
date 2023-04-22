@@ -2,7 +2,7 @@
 
 namespace polygon_client_net.Http
 {
-    internal interface zIAPIConnector
+    internal interface IApiConnector
     {
         event EventHandler<IResponse>? ResponseReceived;
 
