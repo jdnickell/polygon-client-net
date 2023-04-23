@@ -1,4 +1,4 @@
-﻿using polygon_client_net.Http;
+﻿using polygon_client_net.Http.Interfaces;
 
 namespace polygon_client_net.Clients;
 

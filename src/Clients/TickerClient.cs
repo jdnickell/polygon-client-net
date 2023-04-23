@@ -1,5 +1,5 @@
 ﻿using polygon_client_net.Clients.Interfaces;
-using polygon_client_net.Http;
+using polygon_client_net.Http.Interfaces;
 using polygon_client_net.Models.Request;
 using polygon_client_net.Models.Response;
 using polygon_client_net.Resources;
@@ -12,9 +12,9 @@ public class TickerClient : ApiClient, ITickerClient
     {
     }
 
-    public Task<TickersResponse> GetTickerDetails(string ticker, TickerDetailsRequest tickersRequest, CancellationToken cancel = default)
+    public async Task<TickerDetailsResponse> GetTickerDetailsAsync(string ticker, TickerDetailsRequest tickerDetailsRequest, CancellationToken cancel = default)
     {
-        ArgumentNullException.ThrowIfNull(tickersRequest);
-        return Api.Get<TickersResponse>(PolygonUrls.TickerDetails(ticker), tickersRequest.BuildQueryParams(), cancel);
+        ArgumentNullException.ThrowIfNull(tickerDetailsRequest);
+        return await Api.Get<TickerDetailsResponse>(PolygonUrls.TickerDetails(ticker), tickerDetailsRequest.BuildQueryParams(), cancel);
     }
 }

@@ -7,10 +7,9 @@ public abstract class RequestParameters
 {
     /// <summary>
     /// One authentication option is to append the apikey query parameter to all requests, another option is a Bearer token auth header
-    /// TODO: DI magic from caller
+    /// TODO: DI magic from caller, or use headers instead
     /// </summary>
-    [QueryParameter("apiKey")]
-    public string ApiKey { get; set; } = "YOUR_KEY";
+    private static string API_KEY => "YOUR_API_KEY";
 
     public Dictionary<string, string> BuildQueryParams()
     {
@@ -27,6 +26,8 @@ public abstract class RequestParameters
                 AddQueryParameters(queryParameters, queryPropertyInfo, attribute);
             }
         }
+
+        queryParameters.Add("apiKey", API_KEY);
 
         return queryParameters;
     }

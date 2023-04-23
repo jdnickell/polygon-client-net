@@ -5,6 +5,6 @@ namespace polygon_client_net.Clients.Interfaces
 {
     public interface ITickerClient
     {
-        public Task<TickersResponse> GetTickerDetails(string ticker, TickerDetailsRequest tickersRequest, CancellationToken cancel = default);
+        public Task<TickerDetailsResponse> GetTickerDetailsAsync(string ticker, TickerDetailsRequest tickerDetailsRequest, CancellationToken cancel = default);
     }
 }
