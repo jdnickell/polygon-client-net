@@ -2,6 +2,13 @@
 
 public class TickerDetailsResponse
 {
+    public string RequestId { get; set; } = default!;
+    public Results Results { get; set; } = default!;
+    public string Status { get; set; } = default!;
+}
+
+public class Results
+{
     public bool Active { get; set; }
     public Address Address { get; set; } = default!;
     public Branding Branding { get; set; } = default!;
