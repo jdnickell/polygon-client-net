@@ -1,5 +1,4 @@
 ﻿using polygon_client_net.Http.Interfaces;
-using System.Net;
 using System.Text.Json;
 
 namespace polygon_client_net.Http;
@@ -28,12 +27,6 @@ public class ApiConnector : IApiConnector
         return await SendAPIRequestAsync<T>(uri, HttpMethod.Get, parameters, cancel: cancel);
     }
 
-    public Task<HttpStatusCode> Get(Uri uri, IDictionary<string, string>? parameters, object? body, CancellationToken cancel = default)
-    {
-        // TODO, probably don't need this
-        throw new NotImplementedException();
-    }
-
     public async Task<T> SendAPIRequestAsync<T>(Uri uri, 
         HttpMethod method, 
         IDictionary<string, string>? parameters = null, 
@@ -42,10 +35,9 @@ public class ApiConnector : IApiConnector
         ArgumentNullException.ThrowIfNull(uri);
         ArgumentNullException.ThrowIfNull(parameters);
         var response = await _polygonHttpClient.DoRequestAsync(uri, parameters, method, cancel);
+        var jsonSerializerOptions = new JsonSerializerOptions { PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy() };
+        var responseDeserialized = JsonSerializer.Deserialize<T>(response.Body.ToString(), jsonSerializerOptions);
 
-        // TODO Exception handling, return some defined exception the caller can expect and handle
-        // TODO: snake case -> pascal case deserializer 
-        var responseDeserialized = JsonSerializer.Deserialize<T>(response.Body.ToString());
         return responseDeserialized;
     }
 

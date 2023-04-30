@@ -20,20 +20,20 @@ public class Results
     public string ListDate { get; set; } = default!;
     public string Locale { get; set; } = default!;
     public string Market { get; set; } = default!;
-    public long MarketCap { get; set; } = default!;
+    public double MarketCap { get; set; } = default!;
     public string Name { get; set; } = default!;
     public string PhoneNumber { get; set; } = default!;
     public string PrimaryExchange { get; set; } = default!;
     public int RoundLot { get; set; } = default!;
     public string ShareClassFigi { get; set; } = default!;
-    public long ShareClassSharesOutstanding { get; set; } = default!;
+    public double ShareClassSharesOutstanding { get; set; } = default!;
     public string SicCode { get; set; } = default!;
     public string SicDescription { get; set; } = default!;
     public string Ticker { get; set; } = default!;
     public string TickerRoot { get; set; } = default!;
     public int TotalEmployees { get; set; } = default!;
     public string Type { get; set; } = default!;
-    public long WeightedSharesOutstanding { get; set; } = default!;
+    public double WeightedSharesOutstanding { get; set; } = default!;
 }
 
 public class Address
