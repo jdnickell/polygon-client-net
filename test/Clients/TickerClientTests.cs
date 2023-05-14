@@ -77,7 +77,7 @@ public class TickerClientTests
         // There are results
         Assert.NotNull(allResults);
 
-        // And more than a single page size of 100 are present
+        // And more than a single page size of 1000 are present
         Assert.True(allResults.Count > pageSize);
     }
 }
