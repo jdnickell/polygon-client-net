@@ -9,7 +9,7 @@ public abstract class RequestParameters
     /// One authentication option is to append the apikey query parameter to all requests, another option is a Bearer token auth header
     /// TODO: DI magic from caller, or use headers instead
     /// </summary>
-    private static string API_KEY => "YOUR_API_KEY";
+    private static string API_KEY => "YtNBqUAKSTLS1sspFlIpYpUcxNR2vfBp";
 
     public Dictionary<string, string> BuildQueryParams()
     {

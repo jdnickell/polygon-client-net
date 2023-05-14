@@ -5,7 +5,7 @@ namespace polygon_client_net.Models.Request;
 /// <summary>
 /// Query all ticker symbols which are supported by Polygon.io. This API currently includes Stocks/Equities, Crypto, and Forex.
 /// </summary>
-public class TickersRequest
+public class TickersRequest : RequestParameters
 {
     /// <summary>
     /// Specify a ticker symbol. Defaults to empty string which queries all tickers.
@@ -51,7 +51,7 @@ public class TickersRequest
     /// Defaults to the most recent available date.
     /// </summary>
     [QueryParameter("date")]
-    public DateTime Date { get; set; }
+    public DateOnly? Date { get; set; }
 
     /// <summary>
     /// Search for terms within the ticker and/or company name.
@@ -64,9 +64,9 @@ public class TickersRequest
     /// Default is true.
     /// </summary>
     [QueryParameter("active")]
-    public bool IsActive { get; set; }
+    public bool? IsActive { get; set; }
 
-    //TODO: Order/Limit/Sort
+    //TODO: Order/Limit/Sort/Paging
 }
 
 public enum MarketType

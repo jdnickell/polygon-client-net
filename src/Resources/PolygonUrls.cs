@@ -2,6 +2,12 @@
 
 public static class PolygonUrls
 {
-    private static readonly string BASE_URL = "https://api.polygon.io/v3/reference/tickers";
-    public static Uri TickerDetails(string ticker) => new($"{BASE_URL}/{ticker}");
+    #region Reference Data Endpoints
+
+    private static readonly string REFERENCE_DATA_ENDPOINTS_BASE_URL = "https://api.polygon.io/v3/reference";
+    public static Uri TickerDetails(string ticker) => new($"{REFERENCE_DATA_ENDPOINTS_BASE_URL}/tickers/{ticker}");
+    public static Uri Tickers => new($"{REFERENCE_DATA_ENDPOINTS_BASE_URL}/tickers");
+
+    #endregion
+
 }
