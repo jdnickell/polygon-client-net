@@ -33,7 +33,6 @@ public class ApiConnector : IApiConnector
         CancellationToken cancel = default)
     {
         ArgumentNullException.ThrowIfNull(uri);
-        ArgumentNullException.ThrowIfNull(parameters);
         var response = await _polygonHttpClient.DoRequestAsync(uri, parameters, method, cancel);
         var jsonSerializerOptions = new JsonSerializerOptions { PropertyNamingPolicy = new JsonSnakeCaseNamingPolicy() };
         var responseDeserialized = JsonSerializer.Deserialize<T>(response.Body.ToString(), jsonSerializerOptions);

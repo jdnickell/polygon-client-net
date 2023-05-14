@@ -5,12 +5,6 @@ namespace polygon_client_net.Models.Request;
 
 public abstract class RequestParameters
 {
-    /// <summary>
-    /// One authentication option is to append the apikey query parameter to all requests, another option is a Bearer token auth header
-    /// TODO: DI magic from caller, or use headers instead
-    /// </summary>
-    private static string API_KEY => "YtNBqUAKSTLS1sspFlIpYpUcxNR2vfBp";
-
     public Dictionary<string, string> BuildQueryParams()
     {
         var queryParameters = new Dictionary<string, string>();
@@ -27,7 +21,8 @@ public abstract class RequestParameters
             }
         }
 
-        queryParameters.Add("apiKey", API_KEY);
+        /// TODO: Authenticate in the connector with auth headers instead of appending this to the query string.
+        queryParameters.Add("apiKey", Resources.Constants.API_KEY);
 
         return queryParameters;
     }

@@ -1,6 +1,7 @@
 ﻿using polygon_client_net.Clients;
 using polygon_client_net.Http;
 using polygon_client_net.Models.Request;
+using polygon_client_net.Models.Response;
 
 namespace polygon_client_net.Tests.Clients;
 
@@ -47,8 +48,34 @@ public class TickerClientTests
             var tickersResponseTask = new TickerClient(new ApiConnector()).GetTickersAsync(tickersRequest);
 
             var result = await tickersResponseTask;
+
             Assert.NotNull(result.Results.FirstOrDefault());
             Assert.NotNull(result.Results[0].Name);
         }
+    }
+
+    [Fact]
+    public async void GetTickersPagingExample_ValidRequet_AllResultsPagedAndReturned()
+    {
+        // Arrange
+        // empty request object, returns all tickers
+        var tickersRequest = new TickersRequest
+        {
+            Limit = 1000 // sets page size limit to 1,000
+        };
+        var paginator = new Paginator();
+        var apiConnector = new ApiConnector();
+        var tickersResponseTask = new TickerClient(apiConnector).GetTickersPagedAsync(tickersRequest);
+        var firstPage = await tickersResponseTask;
+
+        // Act
+        var allResults = await paginator.PaginateAll(firstPage, apiConnector);
+
+        // Assert
+        // There are results
+        Assert.NotNull(allResults);
+
+        // And more than a single page size of 100 are present
+        Assert.True(allResults.Count > 100);
     }
 }
