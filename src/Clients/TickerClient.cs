@@ -12,9 +12,16 @@ public class TickerClient : ApiClient, ITickerClient
     {
     }
 
-    public async Task<TickerDetailsResponse> GetTickerDetailsAsync(string ticker, TickerDetailsRequest tickerDetailsRequest, CancellationToken cancel = default)
+    public async Task<TickerDetailsResponse> GetTickerDetailsAsync(string ticker, TickerDetailsRequest tickerDetailsRequest, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(tickerDetailsRequest);
-        return await Api.Get<TickerDetailsResponse>(PolygonUrls.TickerDetails(ticker), tickerDetailsRequest.BuildQueryParams(), cancel);
+        return await Api.Get<TickerDetailsResponse>(PolygonUrls.TickerDetails(ticker), tickerDetailsRequest.BuildQueryParams(), cancellationToken);
+    }
+
+    // TODO: Implement paging
+    public async Task<TickersResponse> GetTickersAsync(TickersRequest tickersRequest, CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(tickersRequest);
+        return await Api.Get<TickersResponse>(PolygonUrls.Tickers, tickersRequest.BuildQueryParams(), cancellationToken);
     }
 }

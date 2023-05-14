@@ -2,6 +2,15 @@
 
 public class TickersResponse
 {
+    public int Count { get; set; } = default!;
+    public string NextUrl { get; set; } = default!;
+    public string RequestId { get; set; } = default!;
+    public Result[] Results { get; set; } = Array.Empty<Result>();
+    public string Status { get; set; } = default!;
+}
+
+public class Result
+{
     public bool Active { get; set; } = default!;
     public string Cik { get; set; } = default!;
     public string CompositeFigi { get; set; } = default!;
