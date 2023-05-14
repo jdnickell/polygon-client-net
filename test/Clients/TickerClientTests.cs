@@ -59,9 +59,11 @@ public class TickerClientTests
     {
         // Arrange
         // empty request object, returns all tickers
+
+        var pageSize = 1000;
         var tickersRequest = new TickersRequest
         {
-            Limit = 1000 // sets page size limit to 1,000
+            Limit = pageSize
         };
         var paginator = new Paginator();
         var apiConnector = new ApiConnector();
@@ -76,6 +78,6 @@ public class TickerClientTests
         Assert.NotNull(allResults);
 
         // And more than a single page size of 100 are present
-        Assert.True(allResults.Count > 100);
+        Assert.True(allResults.Count > pageSize);
     }
 }
