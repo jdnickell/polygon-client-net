@@ -66,7 +66,13 @@ public class TickersRequest : RequestParameters
     [QueryParameter("active")]
     public bool? IsActive { get; set; }
 
-    //TODO: Order/Limit/Sort/Paging
+    /// <summary>
+    /// Limit the number of results returned, default is 100 and max is 1000.
+    /// </summary>
+    [QueryParameter("limit")]
+    public int? Limit { get; set; }
+
+    //TODO: Order/Sort/Paging
 }
 
 public enum MarketType
