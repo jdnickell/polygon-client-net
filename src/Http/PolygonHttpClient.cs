@@ -57,8 +57,14 @@ public class PolygonHttpClient : IHttpClient
         return response;
     }
 
+    public void SetBearerToken(string apiKey)
+    {
+        _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+    }
+
     public void SetRequestTimeout(TimeSpan timeout)
     {
+        // TODO
         throw new NotImplementedException();
     }
 

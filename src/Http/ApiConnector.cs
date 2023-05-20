@@ -1,4 +1,5 @@
-﻿using polygon_client_net.Http.Interfaces;
+﻿using polygon_client_net.Clients;
+using polygon_client_net.Http.Interfaces;
 using System.Text.Json;
 
 namespace polygon_client_net.Http;
@@ -7,11 +8,14 @@ public class ApiConnector : IApiConnector
 {
     private readonly IHttpClient _polygonHttpClient;
 
-    public ApiConnector() : this( new PolygonHttpClient() ) { }
+    public ApiConnector(PolygonApiConfiguration configuration) : this(configuration, new PolygonHttpClient() ) 
+    {
+    }
 
-    public ApiConnector(IHttpClient polygonHttpClient)
+    public ApiConnector(PolygonApiConfiguration configuration, IHttpClient polygonHttpClient)
     {
         _polygonHttpClient = polygonHttpClient;
+        _polygonHttpClient.SetBearerToken(configuration.ApiKey);
     }
 
     public async Task<T> Get<T>(Uri uri, CancellationToken cancel = default)

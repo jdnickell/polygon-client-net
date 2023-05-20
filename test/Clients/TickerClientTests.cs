@@ -1,12 +1,13 @@
 ﻿using polygon_client_net.Clients;
 using polygon_client_net.Http;
 using polygon_client_net.Models.Request;
-using polygon_client_net.Models.Response;
 
 namespace polygon_client_net.Tests.Clients;
 
 public class TickerClientTests
 {
+    private readonly string API_KEY = "YOUR_API_KEY";
+
     /// <summary>
     /// Temporary test - makes an actual request to the TickerDetails endpoint with the hard coded api key in <see cref="RequestParameters"/>
     /// </summary>
@@ -14,7 +15,7 @@ public class TickerClientTests
     public async void GetTickerDetails_ValidRequest_ValidResponse()
     {
         var tickersRequest = new TickerDetailsRequest { Date = new DateOnly(2023, 4, 20) };
-        var tickerDetailsResponseTask = new TickerClient(new ApiConnector()).GetTickerDetailsAsync("MSFT", tickersRequest);
+        var tickerDetailsResponseTask = new TickerClient(new ApiConnector(API_KEY)).GetTickerDetailsAsync("MSFT", tickersRequest);
 
         var result = await tickerDetailsResponseTask;
 
@@ -40,12 +41,11 @@ public class TickerClientTests
             }
 
             // todo: test with order, limit, sort, type enums
-            // todo: test paging results
         };
 
         foreach(var tickersRequest in tickersRequests)
         {
-            var tickersResponseTask = new TickerClient(new ApiConnector()).GetTickersAsync(tickersRequest);
+            var tickersResponseTask = new TickerClient(new ApiConnector(API_KEY)).GetTickersAsync(tickersRequest);
 
             var result = await tickersResponseTask;
 
@@ -66,7 +66,7 @@ public class TickerClientTests
             Limit = pageSize
         };
         var paginator = new Paginator();
-        var apiConnector = new ApiConnector();
+        var apiConnector = new ApiConnector(API_KEY);
         var tickersResponseTask = new TickerClient(apiConnector).GetTickersPagedAsync(tickersRequest);
         var firstPage = await tickersResponseTask;
 

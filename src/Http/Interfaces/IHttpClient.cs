@@ -4,6 +4,8 @@
     {
         Task<IResponse> DoRequestAsync(Uri endpoint, IDictionary<string, string> parameters, HttpMethod httpMethod, CancellationToken cancel = default);
 
+        void SetBearerToken(string apiKey);
+
         void SetRequestTimeout(TimeSpan timeout);
     }
 }
