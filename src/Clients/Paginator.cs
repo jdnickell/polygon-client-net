@@ -27,9 +27,7 @@ public class Paginator : IPaginator
 
         while (page.NextUrl != null && await ShouldContinue(results, page).ConfigureAwait(false))
         {
-            // TODO: Remove api key parameter after auth exists in connector
-            var nextUrl = $"{page.NextUrl}&apiKey={Resources.Constants.API_KEY}";
-            page = await connector.Get<Paging<T>>(new Uri(nextUrl, UriKind.Absolute), cancel).ConfigureAwait(false);
+            page = await connector.Get<Paging<T>>(new Uri(page.NextUrl, UriKind.Absolute), cancel).ConfigureAwait(false);
             if (page.Results != null)
             {
                 results.AddRange(page.Results);

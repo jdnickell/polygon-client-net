@@ -21,9 +21,6 @@ public abstract class RequestParameters
             }
         }
 
-        /// TODO: Authenticate in the connector with auth headers instead of appending this to the query string.
-        queryParameters.Add("apiKey", Resources.Constants.API_KEY);
-
         return queryParameters;
     }
 
