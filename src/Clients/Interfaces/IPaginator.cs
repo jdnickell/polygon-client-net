@@ -1,4 +1,4 @@
-﻿using polygon_client_net.Http;
+﻿using polygon_client_net.Http.Interfaces;
 using polygon_client_net.Models;
 
 namespace polygon_client_net.Clients.Interfaces;
@@ -6,7 +6,7 @@ namespace polygon_client_net.Clients.Interfaces;
 /// <summary>
 /// Allows cycling through all resources of a response
 /// </summary>
-internal interface IPaginator
+public interface IPaginator
 {
     /// <summary>
     /// Fetches all pages and returns them in a single list
@@ -16,5 +16,5 @@ internal interface IPaginator
     /// <param name="connector">The Api connector for making requests to Polygon.</param>
     /// <param name="cancel">The cancellation token to cancel the request.</param>
     /// <returns>A list containing all pages</returns>
-    Task<IList<T>> PaginateAll<T>(IPaginatable<T> firstPage, ApiConnector connector, CancellationToken cancel = default);
+    Task<IList<T>> PaginateAll<T>(IPaginatable<T> firstPage, IApiConnector connector, CancellationToken cancel = default);
 }

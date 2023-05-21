@@ -1,5 +1,5 @@
 ﻿using polygon_client_net.Clients.Interfaces;
-using polygon_client_net.Http;
+using polygon_client_net.Http.Interfaces;
 using polygon_client_net.Models;
 using polygon_client_net.Models.Response;
 
@@ -13,7 +13,7 @@ public class Paginator : IPaginator
     }
 
     /// <inheritdoc/>
-    public async Task<IList<T>> PaginateAll<T>(IPaginatable<T> firstPage, ApiConnector connector, CancellationToken cancel = default)
+    public async Task<IList<T>> PaginateAll<T>(IPaginatable<T> firstPage, IApiConnector connector, CancellationToken cancel = default)
     {
         ArgumentNullException.ThrowIfNull(firstPage);
         ArgumentNullException.ThrowIfNull(connector);
