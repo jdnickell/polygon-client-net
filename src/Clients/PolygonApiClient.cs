@@ -13,6 +13,8 @@ public class PolygonApiClient : IPolygonApiClient
     public IPaginator DefaultPaginator { get; }
     public ITickerClient Ticker { get; }
 
+    public IStockFinancialsClient StockFinancialsClient { get; }
+
     public PolygonApiClient(PolygonApiConfiguration polygonApiConfiguration)
     {
         ArgumentException.ThrowIfNullOrEmpty(polygonApiConfiguration.ApiKey);
@@ -21,7 +23,9 @@ public class PolygonApiClient : IPolygonApiClient
         _apiConnector = new ApiConnector(_polygonApiConfiguration);
 
         DefaultPaginator = polygonApiConfiguration.DefaultPaginator ?? new Paginator();
+
         Ticker = new TickerClient(_apiConnector);
+        StockFinancialsClient = new StockFinancialsClient(_apiConnector);
     }
 
     public Task<IList<T>> PaginateAll<T>(
