@@ -15,7 +15,7 @@ public class TickerDetailsRequest : RequestParameters
     /// </summary>
     public DateOnly Date { get; set; }
 
-    [QueryParameter("Date")]
+    [QueryParameter("date")]
     protected string? DateFormatted
     {
         get => Date.ToString("MM-dd-yyy", CultureInfo.InvariantCulture);

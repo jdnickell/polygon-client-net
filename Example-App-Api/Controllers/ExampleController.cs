@@ -54,4 +54,25 @@ public class ExampleController : ControllerBase
 
         return Ok(result.Take(300));
     }
+
+    [HttpGet]
+    [Route("[action]", Name = "GetStockFinancials")]
+    public async Task<IActionResult> GetStockFinancials()
+    {
+        var pageSize = 100;
+        var stockFinancialsRequest = new StockFinancialsRequest
+        {
+            Limit = pageSize,
+            Ticker = "MSFT",
+        };
+
+        var client = _polygonApiClientBuilder.BuildClient();
+
+        var stockFinancialsResponseTask = client.StockFinancialsClient.GetStockFinancialsAsync(stockFinancialsRequest);
+        var firstPage = await stockFinancialsResponseTask;
+
+        var result = await client.PaginateAll(firstPage);
+
+        return Ok(result);
+    }
 }

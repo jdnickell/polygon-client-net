@@ -33,6 +33,11 @@ public abstract class RequestParameters
             {
                 queryParameters.Add(attribute.Key ?? queryPropertyInfo.Name, valueAsBool ? "true" : "false");
             }
+            else if (DateOnly.TryParse(value.ToString(), out DateOnly result))
+            {
+                if (result > DateOnly.MinValue)
+                    queryParameters.Add(attribute.Key ?? queryPropertyInfo.Name, value.ToString());
+            }
             else
             {
                 queryParameters.Add(attribute.Key ?? queryPropertyInfo.Name, value.ToString()); // TODO: Custom exception

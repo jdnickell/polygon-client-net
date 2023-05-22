@@ -3,7 +3,7 @@ using polygon_client_net.Http.Interfaces;
 using polygon_client_net.Models;
 using polygon_client_net.Models.Response;
 
-namespace Example_App_Api.Controllers
+namespace Example_App_Api
 {
     /// <summary>
     /// Example custom paginator identical to the library's.
