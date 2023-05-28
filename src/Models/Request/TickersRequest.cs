@@ -17,13 +17,18 @@ public class TickersRequest : RequestParameters
     /// Specify the type of the tickers. Find the supported types via the TickerType request.
     /// </summary>
     [QueryParameter("type")]
-    public string? Type { get; set; }
+    public TickerType? Type { get; set; }
+
+    public MarketType? MarketType { get; set; }
 
     /// <summary>
     /// Filter by market type. By default all markets are included.
     /// </summary>
     [QueryParameter("market")]
-    public MarketType? MarketType { get; set; }
+    protected string? MarketTypeFormatted
+    {
+        get => MarketType?.ToString().ToLower();
+    }
 
     /// <summary>
     /// Specify the primary exchange of the asset in the ISO code format. Find more information about the ISO codes at the ISO org website. 
@@ -72,6 +77,12 @@ public class TickersRequest : RequestParameters
     [QueryParameter("limit")]
     public int? Limit { get; set; }
 
+    /// <summary>
+    /// If provided, indicates continued fetching of paged results
+    /// </summary>
+    [QueryParameter("cursor")]
+    public string? Cursor { get; set; }
+
     //TODO: Order/Sort/Paging
 }
 
@@ -82,4 +93,11 @@ public enum MarketType
     Fx,
     Otc,
     Indices
+}
+
+public enum TickerType
+{
+    CS,
+    EFT
+    // additional enums
 }

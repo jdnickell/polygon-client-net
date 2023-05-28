@@ -42,6 +42,14 @@ public class PolygonHttpClient : IHttpClient
             .SendAsync(httpRequestMessage, HttpCompletionOption.ResponseContentRead, cancellationToken)
             .ConfigureAwait(false);
 
+        if (!responseMessage.IsSuccessStatusCode)
+        {
+            // todo add a logger
+            var statusCode = responseMessage.StatusCode;
+            var reasonPhrase = responseMessage.ReasonPhrase;
+            var requestUri = responseMessage?.RequestMessage?.RequestUri;
+        }
+
         var body = await responseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
         using var content = responseMessage.Content;

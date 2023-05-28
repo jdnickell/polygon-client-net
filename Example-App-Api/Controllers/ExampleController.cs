@@ -20,7 +20,14 @@ public class ExampleController : ControllerBase
     public async Task<IActionResult> GetTickersAsync()
     {
         var client = _polygonApiClientBuilder.BuildClient();
-        var result = await client.Ticker.GetTickersAsync(new TickersRequest { Search = "brink" });
+        var result = await client.Ticker.GetTickersAsync(new TickersRequest 
+            { 
+                IsActive = true,
+                MarketType = MarketType.Stocks,
+                Type = TickerType.CS,
+                Limit = 1000,
+            }
+        );
         return Ok(result);
     }
 
@@ -37,22 +44,28 @@ public class ExampleController : ControllerBase
 
     [HttpGet]
     [Route("[action]", Name = "GetTickersPaged")]
-    public async Task<IActionResult> GetTickersPagedAsync()
+    public async Task<IActionResult> GetTickersPagedAsync(string? cursor, int? limit)
     {
-        var pageSize = 1000;
+        // the polygon tickers api supports less than / greater than filter params. That's probably better for creating a list control that loads results as you scroll.
+        // This cursor approach allows a use case where a request's purpose is to load all items, but provides a user control over continuing or cancelling the operation.
         var tickersRequest = new TickersRequest
         {
-            Limit = pageSize
+            IsActive = true,
+            Limit = 1000,
+            MarketType = MarketType.Stocks,
+            Type = TickerType.CS
         };
 
+        if (!string.IsNullOrWhiteSpace(cursor))
+        {
+            tickersRequest.Cursor = cursor;
+            tickersRequest.Limit = limit.HasValue ? limit : 1000;
+        }
+
         var client = _polygonApiClientBuilder.BuildClient();
+        var page = await client.Ticker.GetTickersAsync(tickersRequest);
 
-        var tickersResponseTask = client.Ticker.GetTickersPagedAsync(tickersRequest);
-        var firstPage = await tickersResponseTask;
-
-        var result = await client.PaginateAll(firstPage);
-
-        return Ok(result.Take(300));
+        return Ok(page);
     }
 
     [HttpGet]
