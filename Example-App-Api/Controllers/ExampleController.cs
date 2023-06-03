@@ -25,7 +25,8 @@ public class ExampleController : ControllerBase
                 IsActive = true,
                 MarketType = MarketType.Stocks,
                 Type = TickerType.CS,
-                Limit = 1000,
+                Limit = 10,
+                Search = "Bri"
             }
         );
         return Ok(result);
@@ -72,19 +73,19 @@ public class ExampleController : ControllerBase
     [Route("[action]", Name = "GetStockFinancials")]
     public async Task<IActionResult> GetStockFinancials()
     {
-        var pageSize = 100;
-        var stockFinancialsRequest = new StockFinancialsRequest
-        {
-            Limit = pageSize,
-            Ticker = "MSFT",
-        };
-
         var client = _polygonApiClientBuilder.BuildClient();
 
-        var stockFinancialsResponseTask = client.StockFinancialsClient.GetStockFinancialsAsync(stockFinancialsRequest);
-        var firstPage = await stockFinancialsResponseTask;
+        var stockFinancialsRequest = new StockFinancialsRequest
+        {
+            Limit = 1, // get the most recent period of the report
+            Ticker = "MSFT",
+            Timeframe = Timeframe.Annual,
+            IncludeSources = true,
+            PeriodOfReportDate = new DateOnly(2021, 01, 01),
+            Sort = "period_of_report_date"
+        };
 
-        var result = await client.PaginateAll(firstPage);
+        var result = await client.StockFinancialsClient.GetStockFinancialsPagedAsync(stockFinancialsRequest);
 
         return Ok(result);
     }

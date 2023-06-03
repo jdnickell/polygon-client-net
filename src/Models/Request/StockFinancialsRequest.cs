@@ -59,16 +59,18 @@ namespace polygon_client_net.Models.Request
         // filing_date.gtgreater than
         // filing_date.gtegreater than or equal to
 
-        /// <summary>
-        /// The period of report for the filing with financials data in YYYY-MM-DD format.
-        /// </summary>
+        // <summary>
+        // The period of report for the filing with financials data in YYYY-MM-DD format.
+        // </summary>
         public DateOnly PeriodOfReportDate { get; set; }
 
-        [QueryParameter("period_of_report_date")]
+        [QueryParameter("period_of_report_date.gte")] // TODO - hard coded >= for now
         protected string? PeriodOfReportDateFormatted
         {
             get => PeriodOfReportDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
         }
+
+        public Timeframe? Timeframe { get; set; }
 
         /// <summary>
         /// Query by timeframe. Annual financials originate from 10-K filings, and quarterly financials originate from 10-Q filings. 
@@ -78,7 +80,10 @@ namespace polygon_client_net.Models.Request
         /// so some companies my not return quarterly financials for Q4
         /// </remarks>
         [QueryParameter("timeframe")]
-        public Timeframe? Timeframe { get; set; }
+        public string? TimeframeFormatted
+        {
+            get => Timeframe?.ToString().ToLower();
+        }
 
         /// <summary>
         /// Whether or not to include the xpath and formula attributes for each financial data point. See the xpath and formula response attributes for more info. False by default.
@@ -92,7 +97,10 @@ namespace polygon_client_net.Models.Request
         [QueryParameter("limit")]
         public int? Limit { get; set; }
 
-        //TODO: Order/Sort
+        // TODO: Order/Sort
+        // add sort enums
+        [QueryParameter("sort")]
+        public string? Sort { get; set; }
     }
 
     public enum Timeframe
