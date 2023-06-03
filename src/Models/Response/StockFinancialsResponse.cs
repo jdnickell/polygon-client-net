@@ -5,7 +5,7 @@ public class Assets
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public long? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class BalanceSheet
@@ -35,7 +35,7 @@ public class BenefitsCostsExpenses
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class CashFlowStatement
@@ -65,7 +65,7 @@ public class ComprehensiveIncomeLoss
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class ComprehensiveIncomeLossAttributableToNoncontrollingInterest
@@ -73,7 +73,7 @@ public class ComprehensiveIncomeLossAttributableToNoncontrollingInterest
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class ComprehensiveIncomeLossAttributableToParent
@@ -81,7 +81,7 @@ public class ComprehensiveIncomeLossAttributableToParent
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class CostOfRevenue
@@ -89,7 +89,7 @@ public class CostOfRevenue
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class CostsAndExpenses
@@ -97,7 +97,7 @@ public class CostsAndExpenses
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class CurrentAssets
@@ -105,7 +105,7 @@ public class CurrentAssets
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class CurrentLiabilities
@@ -113,7 +113,7 @@ public class CurrentLiabilities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class DilutedEarningsPerShare
@@ -129,7 +129,7 @@ public class Equity
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class EquityAttributableToNoncontrollingInterest
@@ -137,7 +137,7 @@ public class EquityAttributableToNoncontrollingInterest
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class EquityAttributableToParent
@@ -145,7 +145,7 @@ public class EquityAttributableToParent
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class ExchangeGainsLosses
@@ -153,7 +153,7 @@ public class ExchangeGainsLosses
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class Financials
@@ -169,7 +169,7 @@ public class GrossProfit
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class IncomeLossFromContinuingOperationsAfterTax
@@ -177,7 +177,7 @@ public class IncomeLossFromContinuingOperationsAfterTax
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class IncomeLossFromContinuingOperationsBeforeTax
@@ -185,7 +185,7 @@ public class IncomeLossFromContinuingOperationsBeforeTax
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class IncomeStatement
@@ -216,7 +216,7 @@ public class IncomeTaxExpenseBenefit
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class InterestExpenseOperating
@@ -224,7 +224,7 @@ public class InterestExpenseOperating
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class Liabilities
@@ -232,7 +232,7 @@ public class Liabilities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class LiabilitiesAndEquity
@@ -240,7 +240,7 @@ public class LiabilitiesAndEquity
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public long? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlow
@@ -248,7 +248,7 @@ public class NetCashFlow
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowContinuing
@@ -256,7 +256,7 @@ public class NetCashFlowContinuing
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromFinancingActivities
@@ -264,7 +264,7 @@ public class NetCashFlowFromFinancingActivities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromFinancingActivitiesContinuing
@@ -272,7 +272,7 @@ public class NetCashFlowFromFinancingActivitiesContinuing
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromInvestingActivities
@@ -280,7 +280,7 @@ public class NetCashFlowFromInvestingActivities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromInvestingActivitiesContinuing
@@ -288,7 +288,7 @@ public class NetCashFlowFromInvestingActivitiesContinuing
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromOperatingActivities
@@ -296,7 +296,7 @@ public class NetCashFlowFromOperatingActivities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetCashFlowFromOperatingActivitiesContinuing
@@ -304,7 +304,7 @@ public class NetCashFlowFromOperatingActivitiesContinuing
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetIncomeLoss
@@ -312,7 +312,7 @@ public class NetIncomeLoss
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetIncomeLossAttributableToNoncontrollingInterest
@@ -320,7 +320,7 @@ public class NetIncomeLossAttributableToNoncontrollingInterest
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetIncomeLossAttributableToParent
@@ -328,7 +328,7 @@ public class NetIncomeLossAttributableToParent
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NetIncomeLossAvailableToCommonStockholdersBasic
@@ -336,7 +336,7 @@ public class NetIncomeLossAvailableToCommonStockholdersBasic
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NoncurrentAssets
@@ -344,7 +344,7 @@ public class NoncurrentAssets
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class NoncurrentLiabilities
@@ -352,7 +352,7 @@ public class NoncurrentLiabilities
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class OperatingExpenses
@@ -360,7 +360,7 @@ public class OperatingExpenses
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class OperatingIncomeLoss
@@ -368,7 +368,7 @@ public class OperatingIncomeLoss
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class OtherComprehensiveIncomeLoss
@@ -376,7 +376,7 @@ public class OtherComprehensiveIncomeLoss
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class OtherComprehensiveIncomeLossAttributableToParent
@@ -384,7 +384,7 @@ public class OtherComprehensiveIncomeLossAttributableToParent
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class ParticipatingSecuritiesDistributedAndUndistributedEarningsLossBasic
@@ -392,7 +392,7 @@ public class ParticipatingSecuritiesDistributedAndUndistributedEarningsLossBasic
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class PreferredStockDividendsAndOtherAdjustments
@@ -400,11 +400,12 @@ public class PreferredStockDividendsAndOtherAdjustments
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
 
 public class StockFinancialsResponseResults
 {
+    public string Id { get; set; } = default!;
     public string Cik { get; set; } = default!;
     public string CompanyName { get; set; } = default!;
     public string EndDate { get; set; } = default!;
@@ -415,6 +416,8 @@ public class StockFinancialsResponseResults
     public string SourceFilingFileUrl { get; set; } = default!;
     public string SourceFilingUrl { get; set; } = default!;
     public string StartDate { get; set; } = default!;
+    public string[] Tickers { get; set; } = default!;
+    public string Timeframe { get; set; } = default!;
 }
 
 public class Revenues
@@ -422,14 +425,5 @@ public class Revenues
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
     public string Unit { get; set; } = default!;
-    public int? Value { get; set; } = default!;
-}
-
-public class StockFinancialsResponse
-{
-    public int? Count { get; set; } = default!;
-    public string NextUrl { get; set; } = default!;
-    public string RequestId { get; set; } = default!;
-    public List<StockFinancialsResponseResults> StockFinancialsResponseResults { get; set; } = default!;
-    public string Status { get; set; } = default!;
+    public double? Value { get; set; } = default!;
 }
