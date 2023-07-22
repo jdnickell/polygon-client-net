@@ -33,11 +33,11 @@ public class ExampleController : ControllerBase
 
     [HttpGet]
     [Route("[action]", Name = "GetTickerDetails")]
-    public async Task<IActionResult> GetTickerDetailsAsync()
+    public async Task<IActionResult> GetTickerDetailsAsync(string ticker)
     {
         var client = _polygonApiClientBuilder.BuildClient();
         var tickersRequest = new TickerDetailsRequest { Date = new DateOnly(2023, 4, 20) };
-        var result = await client.Ticker.GetTickerDetailsAsync("MSFT", tickersRequest);
+        var result = await client.Ticker.GetTickerDetailsAsync(ticker, tickersRequest);
 
         return Ok(result);
     }
@@ -70,13 +70,17 @@ public class ExampleController : ControllerBase
 
     [HttpGet]
     [Route("[action]", Name = "GetStockFinancials")]
-    public async Task<IActionResult> GetStockFinancials()
+    public async Task<IActionResult> GetStockFinancials(string ticker)
     {
         var pageSize = 100;
         var stockFinancialsRequest = new StockFinancialsRequest
         {
-            Limit = pageSize,
-            Ticker = "MSFT",
+            Limit = 1, // get the most recent period of the report
+            Ticker = ticker.ToUpper(),
+            Timeframe = Timeframe.Annual,
+            IncludeSources = true,
+            PeriodOfReportDate = new DateOnly(2021, 01, 01),
+            Sort = "period_of_report_date"
         };
 
         var client = _polygonApiClientBuilder.BuildClient();

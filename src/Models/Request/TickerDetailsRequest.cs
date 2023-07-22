@@ -18,6 +18,6 @@ public class TickerDetailsRequest : RequestParameters
     [QueryParameter("date")]
     protected string? DateFormatted
     {
-        get => Date.ToString("MM-dd-yyy", CultureInfo.InvariantCulture);
+        get => Date.ToString("yyy-MM-dd", CultureInfo.InvariantCulture);
     }
 }
