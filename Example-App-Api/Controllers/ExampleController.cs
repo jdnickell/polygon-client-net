@@ -71,22 +71,23 @@ public class ExampleController : ControllerBase
 
     [HttpGet]
     [Route("[action]", Name = "GetStockFinancials")]
-    public async Task<IActionResult> GetStockFinancials()
+    public async Task<IActionResult> GetStockFinancials(string ticker)
     {
-        var client = _polygonApiClientBuilder.BuildClient();
-
+        var pageSize = 100;
         var stockFinancialsRequest = new StockFinancialsRequest
         {
             Limit = 1, // get the most recent period of the report
-            Ticker = "MSFT",
+            Ticker = ticker.ToUpper(),
             Timeframe = Timeframe.Annual,
             IncludeSources = true,
             PeriodOfReportDate = new DateOnly(2021, 01, 01),
             Sort = "period_of_report_date"
         };
 
-        var result = await client.StockFinancialsClient.GetStockFinancialsPagedAsync(stockFinancialsRequest);
-
+        var client = _polygonApiClientBuilder.BuildClient();
+        var stockFinancialsResponseTask = client.StockFinancialsClient.GetStockFinancialsAsync(stockFinancialsRequest);
+        var firstPage = await stockFinancialsResponseTask;
+        var result = await client.PaginateAll(firstPage);
         return Ok(result);
     }
 }
