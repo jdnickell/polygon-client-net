@@ -73,7 +73,6 @@ public class ExampleController : ControllerBase
     [Route("[action]", Name = "GetStockFinancials")]
     public async Task<IActionResult> GetStockFinancials(string ticker)
     {
-        var pageSize = 100;
         var stockFinancialsRequest = new StockFinancialsRequest
         {
             Limit = 1, // get the most recent period of the report
@@ -85,7 +84,7 @@ public class ExampleController : ControllerBase
         };
 
         var client = _polygonApiClientBuilder.BuildClient();
-        var stockFinancialsResponseTask = client.StockFinancialsClient.GetStockFinancialsAsync(stockFinancialsRequest);
+        var stockFinancialsResponseTask = client.StockFinancialsClient.GetStockFinancialsPagedAsync(stockFinancialsRequest);
         var firstPage = await stockFinancialsResponseTask;
         var result = await client.PaginateAll(firstPage);
         return Ok(result);
