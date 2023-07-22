@@ -1,5 +1,6 @@
 # polygon-client-net
 An unofficial and incomplete .net client library for the Polygon.io REST and WebSocket API.
+At the moment, I'm just adding things to this public repo as needed for functionality in another project.
 
 
 ## REST API spec
