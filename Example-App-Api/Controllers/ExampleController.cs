@@ -20,7 +20,7 @@ public class ExampleController : ControllerBase
     public async Task<IActionResult> GetTickersAsync()
     {
         var client = _polygonApiClientBuilder.BuildClient();
-        var result = await client.Ticker.GetTickersAsync(new TickersRequest 
+        var result = await client.Ticker.GetTickersPagedAsync(new TickersRequest 
             { 
                 IsActive = true,
                 MarketType = MarketType.Stocks,
@@ -64,7 +64,7 @@ public class ExampleController : ControllerBase
         }
 
         var client = _polygonApiClientBuilder.BuildClient();
-        var page = await client.Ticker.GetTickersAsync(tickersRequest);
+        var page = await client.Ticker.GetTickersPagedAsync(tickersRequest);
 
         return Ok(page);
     }

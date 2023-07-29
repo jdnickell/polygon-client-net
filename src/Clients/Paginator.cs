@@ -5,11 +5,22 @@ using polygon_client_net.Models.Response;
 
 namespace polygon_client_net.Clients;
 
+/// <inheritdoc />
 public class Paginator : IPaginator
 {
     protected virtual Task<bool> ShouldContinue<T>(List<T> results, IPaginatable<T> page)
     {
         return Task.FromResult(true);
+    }
+
+    /// <inheritdoc />
+    public async Task<Paging<T>> Paginate<T>(string nextUrl, IApiConnector connector, CancellationToken cancel = default)
+    {
+        ArgumentException.ThrowIfNullOrEmpty(nextUrl);
+        ArgumentNullException.ThrowIfNull(connector);
+
+        var page = await connector.Get<Paging<T>>(new Uri(nextUrl, UriKind.Absolute), cancel).ConfigureAwait(false);
+        return page;
     }
 
     /// <inheritdoc/>

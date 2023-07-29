@@ -2,6 +2,7 @@
 using polygon_client_net.Http;
 using polygon_client_net.Http.Interfaces;
 using polygon_client_net.Models;
+using polygon_client_net.Models.Response;
 
 namespace polygon_client_net.Clients;
 
@@ -26,6 +27,14 @@ public class PolygonApiClient : IPolygonApiClient
 
         Ticker = new TickerClient(_apiConnector);
         StockFinancialsClient = new StockFinancialsClient(_apiConnector);
+    }
+
+    public Task<Paging<T>> Paginate<T>(
+        string nextUrl,
+        IPaginator? paginator = null
+    )
+    {
+        return (paginator ?? DefaultPaginator).Paginate<T>(nextUrl, _apiConnector);
     }
 
     public Task<IList<T>> PaginateAll<T>(
