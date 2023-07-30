@@ -15,6 +15,16 @@ namespace Example_App_Api
             return Task.FromResult(true);
         }
 
+        /// <inheritdoc />
+        public async Task<Paging<T>> Paginate<T>(string nextUrl, IApiConnector connector, CancellationToken cancel = default)
+        {
+            ArgumentException.ThrowIfNullOrEmpty(nextUrl);
+            ArgumentNullException.ThrowIfNull(connector);
+
+            var page = await connector.Get<Paging<T>>(new Uri(nextUrl, UriKind.Absolute), cancel).ConfigureAwait(false);
+            return page;
+        }
+
         public async Task<IList<T>> PaginateAll<T>(IPaginatable<T> firstPage, IApiConnector connector, CancellationToken cancel = default)
         {
             ArgumentNullException.ThrowIfNull(firstPage);
