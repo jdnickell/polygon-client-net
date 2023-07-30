@@ -18,15 +18,15 @@ public class TickerClient : ApiClient, ITickerClient
         return await Api.Get<TickerDetailsResponse>(PolygonUrls.TickerDetails(ticker), tickerDetailsRequest.BuildQueryParams(), cancellationToken);
     }
 
-    public async Task<Paging<TickersResponse>> GetTickersPagedAsync(TickersRequest tickersRequest, CancellationToken cancellationToken = default)
+    public async Task<Paging<TickerResponse>> GetTickersPagedAsync(TickersRequest tickersRequest, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(tickersRequest);
-        return await Api.Get<Paging<TickersResponse>>(PolygonUrls.Tickers, tickersRequest.BuildQueryParams(), cancellationToken);
+        return await Api.Get<Paging<TickerResponse>>(PolygonUrls.Tickers, tickersRequest.BuildQueryParams(), cancellationToken);
     }
 
-    public async Task<Paging<TickersResponse>> GetTickersNextPageAsync(string nextUrl, CancellationToken cancellationToken = default)
+    public async Task<Paging<TickerResponse>> GetTickersNextPageAsync(string nextUrl, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrEmpty(nextUrl);
-        return await Api.Get<Paging<TickersResponse>>(new Uri(nextUrl), cancellationToken);
+        return await Api.Get<Paging<TickerResponse>>(new Uri(nextUrl), cancellationToken);
     }
 }

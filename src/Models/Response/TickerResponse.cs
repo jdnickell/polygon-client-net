@@ -1,6 +1,6 @@
 ﻿namespace polygon_client_net.Models.Response;
 
-public class TickersResponse
+public class TickerResponse
 {
     public bool Active { get; set; } = default!;
     public string Cik { get; set; } = default!;
