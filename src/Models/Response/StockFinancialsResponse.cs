@@ -1,11 +1,7 @@
 ﻿namespace polygon_client_net.Models.Response;
 
-public class Assets
+public class Assets : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
 public class BalanceSheet
@@ -22,7 +18,7 @@ public class BalanceSheet
     public NoncurrentLiabilities NoncurrentLiabilities { get; set; } = default!;
 }
 
-public class BasicEarningsPerShare
+public class LineItem
 {
     public string Label { get; set; } = default!;
     public int? Order { get; set; } = default!;
@@ -30,12 +26,14 @@ public class BasicEarningsPerShare
     public double? Value { get; set; } = default!;
 }
 
-public class BenefitsCostsExpenses
+public class BasicEarningsPerShare : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
+}
+
+public class BenefitsCostsExpenses : LineItem
+{
+
 }
 
 public class CashFlowStatement
@@ -60,100 +58,64 @@ public class ComprehensiveIncome
     public OtherComprehensiveIncomeLossAttributableToParent OtherComprehensiveIncomeLossAttributableToParent { get; set; } = default!;
 }
 
-public class ComprehensiveIncomeLoss
+public class ComprehensiveIncomeLoss : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class ComprehensiveIncomeLossAttributableToNoncontrollingInterest
+public class ComprehensiveIncomeLossAttributableToNoncontrollingInterest : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class ComprehensiveIncomeLossAttributableToParent
+public class ComprehensiveIncomeLossAttributableToParent : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class CostOfRevenue
+public class CostOfRevenue : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class CostsAndExpenses
+public class CostsAndExpenses : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class CurrentAssets
+public class CurrentAssets : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class CurrentLiabilities
+public class CurrentLiabilities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class DilutedEarningsPerShare
+public class DilutedEarningsPerShare : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class Equity
+public class Equity : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class EquityAttributableToNoncontrollingInterest
+public class EquityAttributableToNoncontrollingInterest : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class EquityAttributableToParent
+public class EquityAttributableToParent : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class ExchangeGainsLosses
+public class ExchangeGainsLosses : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
 public class Financials
@@ -164,28 +126,19 @@ public class Financials
     public IncomeStatement IncomeStatement { get; set; } = default!;
 }
 
-public class GrossProfit
+public class GrossProfit : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class IncomeLossFromContinuingOperationsAfterTax
+public class IncomeLossFromContinuingOperationsAfterTax : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class IncomeLossFromContinuingOperationsBeforeTax
+public class IncomeLossFromContinuingOperationsBeforeTax : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
 public class IncomeStatement
@@ -211,196 +164,107 @@ public class IncomeStatement
     public Revenues Revenues { get; set; } = default!;
 }
 
-public class IncomeTaxExpenseBenefit
+public class IncomeTaxExpenseBenefit : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class InterestExpenseOperating
+public class InterestExpenseOperating : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class Liabilities
+public class Liabilities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class LiabilitiesAndEquity
+public class LiabilitiesAndEquity : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class NetCashFlow
+public class NetCashFlow : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class NetCashFlowContinuing
+public class NetCashFlowContinuing : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class NetCashFlowFromFinancingActivities
+public class NetCashFlowFromFinancingActivities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
+
 }
 
-public class NetCashFlowFromFinancingActivitiesContinuing
+public class NetCashFlowFromFinancingActivitiesContinuing : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetCashFlowFromInvestingActivities
+public class NetCashFlowFromInvestingActivities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetCashFlowFromInvestingActivitiesContinuing
+public class NetCashFlowFromInvestingActivitiesContinuing : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetCashFlowFromOperatingActivities
+public class NetCashFlowFromOperatingActivities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetCashFlowFromOperatingActivitiesContinuing
+public class NetCashFlowFromOperatingActivitiesContinuing : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetIncomeLoss
+public class NetIncomeLoss : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetIncomeLossAttributableToNoncontrollingInterest
+public class NetIncomeLossAttributableToNoncontrollingInterest : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetIncomeLossAttributableToParent
+public class NetIncomeLossAttributableToParent : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NetIncomeLossAvailableToCommonStockholdersBasic
+public class NetIncomeLossAvailableToCommonStockholdersBasic : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NoncurrentAssets
+public class NoncurrentAssets : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class NoncurrentLiabilities
+public class NoncurrentLiabilities : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class OperatingExpenses
+public class OperatingExpenses : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class OperatingIncomeLoss
+public class OperatingIncomeLoss : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class OtherComprehensiveIncomeLoss
+public class OtherComprehensiveIncomeLoss : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class OtherComprehensiveIncomeLossAttributableToParent
+public class OtherComprehensiveIncomeLossAttributableToParent : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class ParticipatingSecuritiesDistributedAndUndistributedEarningsLossBasic
+public class ParticipatingSecuritiesDistributedAndUndistributedEarningsLossBasic : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
-public class PreferredStockDividendsAndOtherAdjustments
+public class PreferredStockDividendsAndOtherAdjustments : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
 
 public class StockFinancialsResponseResults
@@ -420,10 +284,6 @@ public class StockFinancialsResponseResults
     public string Timeframe { get; set; } = default!;
 }
 
-public class Revenues
+public class Revenues : LineItem
 {
-    public string Label { get; set; } = default!;
-    public int? Order { get; set; } = default!;
-    public string Unit { get; set; } = default!;
-    public double? Value { get; set; } = default!;
 }
