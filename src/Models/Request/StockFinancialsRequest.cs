@@ -47,7 +47,7 @@ namespace polygon_client_net.Models.Request
         /// </remarks>
         public DateOnly FilingDate { get; set; }
 
-        [QueryParameter("filing_date")]
+        [QueryParameter("filing_date.gte")] // TODO - hard coded >= for now
         protected string? FilingDateFormatted
         {
             get => FilingDate.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -61,6 +61,7 @@ namespace polygon_client_net.Models.Request
 
         // <summary>
         // The period of report for the filing with financials data in YYYY-MM-DD format.
+        // The Polygon REST docs don't give anymore information about this parameter, but it seems like this is an annual occurrence.
         // </summary>
         public DateOnly PeriodOfReportDate { get; set; }
 
